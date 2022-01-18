@@ -1,0 +1,91 @@
+#include <stdio.h>
+
+int main(void) {
+
+  FILE *fptr, *fptr2;
+
+  int id, grade1, grade2, grade3, grade4, grade5, grade6;
+  int i, s, r, total, average;
+
+  char name[255];
+  char name1[255];
+
+
+  fptr = fopen("student", "w");
+
+  if (fptr != NULL) {
+    printf("");
+  }
+  else {
+    printf("Failed to create the file.\n");
+
+    return -1;
+  }
+
+  printf("Enter student name:");
+  scanf("%s", &name);
+  printf("ID number:");
+  scanf("%d", &id);
+  printf("Math Grade:");
+  scanf("%d", &grade1);
+  printf("Science Grade:");
+  scanf("%d", &grade2);
+  printf("English Grade:");
+  scanf("%d", &grade3);
+
+  total = grade1+grade2+grade3;
+  average = total/3;
+
+    fprintf(fptr,"Student name: %s\n", name);
+    fprintf(fptr,"ID: %d\n", id);
+    fprintf(fptr,"Math Grade: %d\n", grade1);
+    fprintf(fptr,"Science Grade: %d\n", grade2);
+    fprintf(fptr,"English Grade: %d\n", grade3);
+    fprintf(fptr, "Total Grade: %d\n", total);
+    fprintf(fptr, "Total Average: %d", average);
+
+    fptr = fopen("student", "r");
+
+  fclose(fptr);
+
+  fptr2 = fopen("student#2", "w");
+
+  if (fptr2 != NULL) {
+    printf("");
+  }
+  else {
+    printf("Failed to create the file.\n");
+
+    return -1;
+  }
+
+  printf("                              \n");
+
+  printf("Enter student name:");
+  scanf("%s", &name1);
+  printf("Enter student ID:");
+  scanf("%d", &id);
+  printf("Math Grade:");
+  scanf("%d", &grade4);
+  printf("Science Grade:");
+  scanf("%d", &grade5);
+  printf("English Grade:");
+  scanf("%d", &grade6);
+
+  total = grade4+grade5+grade6;
+  average = total/3;
+
+    fprintf(fptr,"Student name: %s\n", name1);
+    fprintf(fptr,"ID: %d\n", id);
+    fprintf(fptr,"Math Grade: %d\n", grade4);
+    fprintf(fptr,"Science Grade: %d\n", grade5);
+    fprintf(fptr,"English Grade: %d\n", grade6);
+    fprintf(fptr2, "Total Grade: %d\n", total);
+    fprintf(fptr2, "Total Average: %d", average);
+
+    fptr2 = fopen("student#2", "r");
+
+  fclose(fptr2);
+
+  return 0;
+}
